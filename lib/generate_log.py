@@ -1,8 +1,5 @@
 from datetime import datetime
 
-import requests
-
-
 def generate_log(data):
     if not isinstance(data, list):
         raise ValueError("data must be a list")
@@ -18,6 +15,8 @@ def generate_log(data):
 
 
 def fetch_data():
+    import requests
+
     response = requests.get("https://jsonplaceholder.typicode.com/posts/1", timeout=10)
     if response.status_code == 200:
         return response.json()
